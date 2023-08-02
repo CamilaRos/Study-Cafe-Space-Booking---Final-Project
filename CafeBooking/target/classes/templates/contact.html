@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{template.html}"> <!-- Thymeleaf Template -->
+
+<!-- Head and Links -->
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Font Awesome CSS -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"> <!-- Google Fonts CSS -->
+  <link rel="stylesheet" href="/static/style.css" th:href="@{/style.css}"> <!-- Custom Link CSS -->
+  <title>Contact Us</title>
+</head>
+
+<!-- Body -->
+<body>
+<div layout:fragment="content">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Cafe Space Booking <img src="/images/slogan.jpeg" alt="Mug" class="slogan"></a> <!-- Logo -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/}">Home</a> <!-- Home link -->
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/sign_in}">Login</a> <!-- Login link -->
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/contact}">Contact</a> <!-- Contact link -->
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Page heading -->
+  <header class="jumbotron text-center custom-header">
+    <h1>Contact Us</h1>
+  </header>
+
+  <!-- Contact-Us Form -->
+  <section id="contact" class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <h2 class="get-in-touch">Get in Touch</h2>
+        <form class="form">
+          <p class="get-in-touch-p">Have questions, feedback, or comments?</p>
+          <div class="form-group">
+            <label for="contactName">Name</label>
+            <input type="text" class="form-control" id="contactName" placeholder="Enter your name" required> <!-- Input field for name -->
+          </div>
+          <div class="form-group">
+            <label for="contactEmail">Email</label>
+            <input type="text" class="form-control" id="contactEmail" placeholder="Enter your email" required> <!-- Input field for email -->
+          </div>
+          <div class="form-group">
+            <label for="message">Review</label>
+            <textarea class="form-control" id="message" rows="5" placeholder="Your text here" required></textarea> <!-- Textarea for user's review or comment -->
+
+            <!-- Thank you message (to be displayed after form submission) -->
+          </div>
+          <button type="submit" class="btn btn-primary" th:onclick="'thankyou(\'' + ${message} + '\')'">Submit</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <h5>Follow Us</h5>
+      <div class="social-links">
+        <a href="https://www.facebook.com" target="_blank" class="mr-2"><i class="fab fa-facebook white-icon"></i></a> <!-- Facebook social link -->
+        <a href="https://www.twitter.com" target="_blank" class="mr-2"><i class="fab fa-twitter white-icon"></i></a> <!-- Twitter social link -->
+        <a href="https://www.instagram.com" target="_blank" class="mr-2"><i class="fab fa-instagram white-icon"></i></a> <!-- Instagram social link -->
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> <!-- Bootstrap JavaScript -->
+
+  <!-- Custom JavaScript -->
+  <script>
+    function thankyou() {
+      alert("Thank you for getting in touch! We will contact you soon!");
+    }
+  </script>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{template.html}"> <!-- Thymeleaf Template -->
+
+<!-- Head and Links -->
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Font Awesome CSS -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"> <!-- Google Fonts CSS -->
+  <link rel="stylesheet" href="/static/style.css" th:href="@{/style.css}"> <!-- Custom Link CSS -->
+  <title>Booking List</title>
+</head>
+
+<!-- Body -->
+<body>
+<div layout:fragment="content">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand">Cafe Space Booking <img src="/images/slogan.jpeg" alt="Mug" class="slogan"></a> <!-- Logo -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/}">Home</a> <!-- Home link -->
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/sign_in}">Login</a> <!-- Login link -->
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/contact}">Contact</a> <!-- Contact link -->
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Page heading -->
+  <header class="jumbotron text-center custom-header">
+    <h1>Booking List</h1>
+  </header>
+
+  <!-- List of Bookings -->
+
+  <div class="custom-table">
+    <table class="table my-4 ">
+      <thead>
+      <tr>
+        <th scope="col">Cafe Name/Location</th>
+        <th scope="col">Date</th>
+        <th scope="col">Seats</th>
+        <th scope="col">Time Slot</th>
+        <th scope="col">Options</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="booking : ${list}"> <!-- Loop through each booking in the list -->
+        <td th:text="${booking.cafeName}"></td> <!-- Display cafe name -->
+        <td th:text="${booking.date}"></td> <!-- Display date -->
+        <td th:text="${booking.quantity}"></td> <!-- Display number of seats -->
+        <td th:text="${booking.timeSlot}"></td> <!-- Display time slot -->
+        <td>
+
+          <a th:href="@{/bookings/form?id={id}(id=${booking.id})}" class="edit-button">Edit</a> <!-- Link to edit booking -->
+
+          <form action="/bookings" method="post">
+            <input type="hidden" name="_method" value="delete">
+            <input type="hidden" name="id" th:value="${booking.id}">
+            <input type="submit" value="Delete">
+          </form>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    <a href="/bookings/form" class="my-4">New Booking</a> <!-- Link to create a new booking -->
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <h5>Follow Us</h5>
+      <div class="social-links">
+        <a href="https://www.facebook.com" target="_blank" class="mr-2"><i class="fab fa-facebook white-icon"></i></a> <!-- Facebook social link -->
+        <a href="https://www.twitter.com" target="_blank" class="mr-2"><i class="fab fa-twitter white-icon"></i></a> <!-- Twitter social link -->
+        <a href="https://www.instagram.com" target="_blank" class="mr-2"><i class="fab fa-instagram white-icon"></i></a> <!-- Instagram social link -->
+      </div>
+    </div>
+  </footer>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> <!-- Bootstrap JavaScript -->
+    </div>
+  </body>
+</html>

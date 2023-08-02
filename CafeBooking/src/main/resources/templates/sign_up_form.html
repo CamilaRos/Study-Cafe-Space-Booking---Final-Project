@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{template.html}"> <!-- Thymeleaf Template -->
+
+<!-- Head and Links -->
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Font Awesome CSS -->
+  <link rel="stylesheet" href="/static/style.css" th:href="@{/style.css}"> <!-- Custom Link CSS -->
+  <title>Sign Up</title>
+</head>
+
+<!-- Body -->
+<body>
+<div layout:fragment="content">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="home.html">Cafe Space Booking <img src="/images/slogan.jpeg" alt="Mug" class="slogan"></a> <!-- Logo -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/}">Home</a> <!-- Home link -->
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/sign_in}">Login</a> <!-- Login link -->
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" th:href="@{/contact}">Contact</a> <!-- Contact link -->
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Page heading -->
+  <header class="jumbotron text-center custom-header">
+    <h1>Registration Form</h1> <!-- Page heading -->
+  </header>
+
+  <!-- Registration Form -->
+  <section id="registration" class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <form class="form">
+          <div class="form-group">
+            <label for="firstName">First Name: </label>
+            <input type="text" class="form-control" id="firstName" placeholder="Enter your First Name" required><!-- Input field for name -->
+          </div>
+          <div class="form-group">
+            <label for="lastName">Last Name: </label>
+            <input type="text" class="form-control" id="lastName" placeholder="Enter your Last Name" required><!-- Input field for name -->
+          </div>
+          <div class="form-group">
+            <label for="email">E-mail: </label>
+            <input type="text" class="form-control" id="email" placeholder="Enter your email" required><!-- Input field for name -->
+          </div>
+          <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" class="form-control" id="password"  placeholder="Enter a desired password" pattern="(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{7,}" title="Password must contain at least 7 characters, including one uppercase letter, one lowercase letter, one digit, and one special symbol." required>
+          </div>
+          <div class="sign_up_button">
+            <input type="submit" th:onclick="signup()" value="Sign Up"></div>
+        </form>
+      </div>
+    </div>
+</section>
+
+  <!-- success message -->
+  <div id="successMessage" class="alert alert-info" style="display: none;">You have successfully registered!!</div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <h5>Follow Us</h5>
+      <div class="social-links">
+        <a href="https://www.facebook.com" target="_blank" class="mr-2"><i class="fab fa-facebook white-icon"></i></a> <!-- Facebook social link -->
+        <a href="https://www.twitter.com" target="_blank" class="mr-2"><i class="fab fa-twitter white-icon"></i></a> <!-- Twitter social link -->
+        <a href="https://www.instagram.com" target="_blank" class="mr-2"><i class="fab fa-instagram white-icon"></i></a> <!-- Instagram social link -->
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> <!-- Bootstrap JavaScript -->
+
+  <!-- Custom JavaScript -->
+  <script>
+    function signup() {
+      alert("You have successfully registered!!)
+    }
+  </script>
+</div>
+</body>
+</html>

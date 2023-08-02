@@ -1,0 +1,70 @@
+{
+	"id": "0a3154c9-b6a5-497b-b197-9ef0b22fbc9d",
+	"name": "Bookings",
+	"timestamp": "2023-08-02T08:05:53.073Z",
+	"collection_id": "27576372-6107e090-a6c5-4310-aa75-08b0b018b92b",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 0,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2023-08-02T08:05:52.679Z",
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "7afd9787-d313-4bb9-8a6e-4e0a468fcce8",
+			"name": "Bookings",
+			"url": "http://localhost:8080/bookings",
+			"time": 12,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				69,
+				12
+			],
+			"allTests": [
+				{},
+				{}
+			]
+		},
+		{
+			"id": "7fa81b41-4544-40d6-acb8-11e6cb069479",
+			"name": "Form",
+			"url": "http://localhost:8080",
+			"time": 6,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				6,
+				6
+			],
+			"allTests": [
+				{},
+				{}
+			]
+		}
+	],
+	"count": 2,
+	"totalTime": 93,
+	"collection": {
+		"requests": [
+			{
+				"id": "7afd9787-d313-4bb9-8a6e-4e0a468fcce8",
+				"method": "GET"
+			},
+			{
+				"id": "7fa81b41-4544-40d6-acb8-11e6cb069479",
+				"method": "GET"
+			}
+		]
+	}
+}
